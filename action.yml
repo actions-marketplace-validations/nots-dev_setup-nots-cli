@@ -1,0 +1,40 @@
+name: Setup Nots.dev
+description: Download, install, and setup the Nots.dev CLI.
+author: explodingcamera
+branding:
+  icon: play-circle
+  color: white
+inputs:
+  version:
+    description: 'The version of Nots to install. (e.g. latest, "0.1.5")'
+    required: false
+  deploy-token:
+    required: false
+    description: "Optional deploy token for authenticating against remote nots.dev server."
+  server:
+    required: false
+    description: "Server to connect to"
+outputs:
+  nots-version:
+    description: The version of Bun that was installed.
+  nots-path:
+    description: The path to the Nots CLI.
+runs:
+  using: "composite"
+    steps:
+      - name: Download Nots
+        shell: bash
+        run: |
+          curl -fsSLO https://raw.githubusercontent.com/nots-dev/www/main/docs/install.sh
+          chmod +x install.sh
+          ./install.sh
+          rm install.sh
+          version=$(nots --version | cut -d' ' -f2)
+          echo "${HOME}/.local/bin" >> $GITHUB_PATH
+          echo "nots-version=${version}" >> $GITHUB_OUTPUT
+          echo "nots-path=${HOME}/.local/bin/nots" >> $GITHUB_OUTPUT
+      # - name: Login to Nots
+      #   if: ${{ inputs.deploy-token }}
+      #   shell: bash
+      #   run: |
+      #     nots login --token ${{ inputs.deploy-token }} --server ${{ inputs.server }}
