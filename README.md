@@ -5,7 +5,7 @@ Download, install and setup the Nots.dev CLI.
 ## Usage
 
 ```yaml
-- uses: nots-dev/action@v1
+- uses: nots-dev/setup-nots-cli@v0
   with:
     deploy-token: ${{ secrets.NOTS_TOKEN }}
     server: https://nots.dev
