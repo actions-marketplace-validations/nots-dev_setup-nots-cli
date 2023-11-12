@@ -1,5 +1,5 @@
-name: Setup Nots.dev
-description: Download, install, and setup the Nots.dev CLI.
+name: Setup the Nots CLI
+description: Download, install, and setup the Nots CLI.
 author: explodingcamera
 branding:
   icon: play-circle
@@ -10,7 +10,7 @@ inputs:
     required: false
   deploy-token:
     required: false
-    description: "Optional deploy token for authenticating against remote nots.dev server."
+    description: "Optional deploy token for authenticating against remote nots server."
   server:
     required: false
     description: "Server to connect to"

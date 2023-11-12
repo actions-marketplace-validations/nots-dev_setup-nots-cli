@@ -1,4 +1,4 @@
-# Setup Nots.dev CLI
+# setup-nots-cli
 
 Download, install and setup the Nots.dev CLI.
 
